@@ -13,6 +13,6 @@ keyboard_paste_delay: 100000
 cpu: count=1, ips=4000000
 mouse: enabled=0
 private_colormap: enabled=0
-fullscreen: enabled=1
+fullscreen: enabled=0
 screenmode: name="sample"
 i440fxsupport: enabled=0

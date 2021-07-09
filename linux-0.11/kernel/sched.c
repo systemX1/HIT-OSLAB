@@ -128,14 +128,14 @@ void schedule(void)
 		next = 0;
 		i = NR_TASKS;
 		p = &task[NR_TASKS];
-		while (--i) {
+		while (--i) {	/* 找出conunter最大的p */
 			if (!*--p)
 				continue;
 			if ((*p)->state == TASK_RUNNING && (*p)->counter > c)
 				c = (*p)->counter, next = i;
 		}
 		if (c) break;
-		for(p = &LAST_TASK ; p > &FIRST_TASK ; --p)
+		for(p = &LAST_TASK ; p > &FIRST_TASK ; --p)	/* 使调度时处于就绪态次数越多的进程(I/O密集型)counter越大 */
 			if (*p)
 				(*p)->counter = ((*p)->counter >> 1) +
 						(*p)->priority;
