@@ -76,7 +76,7 @@ bad_sys_call:
 .align 2
 reschedule:
 	pushl $ret_from_sys_call
-	jmp schedule
+	jmp schedule	## C func
 .align 2
 system_call:
 	cmpl $nr_system_calls-1,%eax
@@ -95,9 +95,9 @@ system_call:
 	call sys_call_table(,%eax,4)
 	pushl %eax
 	movl current,%eax
-	cmpl $0,state(%eax)		# state
+	cmpl $0,state(%eax)		# state # if current->state != TASK_RUNNING
 	jne reschedule
-	cmpl $0,counter(%eax)		# counter
+	cmpl $0,counter(%eax)		# counter # if 时间片 == 0
 	je reschedule
 ret_from_sys_call:
 	movl current,%eax		# task[0] cannot have signals

@@ -1,6 +1,8 @@
 # 实验说明
 
-[lab](./labs) ./labs
+[实验说明和记录](./labs) ./labs/
+
+[代码](./linux-0.11) ./linux-0.11
 
 - 0 环境配置
 - 1 实践项目∶控制操作系统启动
@@ -34,9 +36,11 @@
 
 **带目录电子书**
 
-操作系统原理、实现与实践
+操作系统原理、实现与实践 李治军 刘宏伟 978-7-04-049245-3
 
 *A Heavily Commemted Linux Kernel Source Code* V5.0.1
+
+汇编语言第4版 王爽 978-7-302-53941-4
 
 链接：https://pan.baidu.com/s/1_98NxYjNSv_kPxBEk6P6CQ 
 提取码：yyds 

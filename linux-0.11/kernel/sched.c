@@ -173,8 +173,10 @@ void sleep_on(struct task_struct **p)
 	current->state = TASK_UNINTERRUPTIBLE;
 	fprintk(3, "%8ld\t%c\t%ld\n", tmp->pid, 'W', jiffies);	/* my modification */
 	schedule();
-	if (tmp)
+	if (tmp) {
 		tmp->state = TASK_RUNNING;
+		fprintk(3, "%8ld\t%c\t%ld\n", tmp->pid, 'J', jiffies);
+	}
 }
 
 void interruptible_sleep_on(struct task_struct **p)
@@ -191,13 +193,15 @@ repeat:	current->state = TASK_INTERRUPTIBLE;
 	fprintk(3, "%8ld\t%c\t%ld\n", current->pid, 'W', jiffies);	/* my modification */
 	schedule();
 	if (*p && *p != current) {
-		fprintk(3, "%8ld\t%c\t%ld\n", current->pid, 'J', jiffies);	/* my modification */
 		(**p).state = TASK_RUNNING;
+		fprintk(3, "%8ld\t%c\t%ld\n", current->pid, 'J', jiffies);	/* my modification */
 		goto repeat;
 	}
 	*p = NULL;
-	if (tmp)
+	if (tmp) {
 		tmp->state = TASK_RUNNING;
+		fprintk(3, "%8ld\t%c\t%ld\n", tmp->pid, 'J', jiffies);
+	}
 }
 
 void wake_up(struct task_struct **p)

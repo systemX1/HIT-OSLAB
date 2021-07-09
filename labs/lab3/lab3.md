@@ -18,3 +18,5 @@
 
    修改kernel/sched.c中的wake_up()函数, sleep_on()函数, interruptible_sleep_on()函数, sys_pause()函数和schedule()函数
 
+   修改kernel/exit.c中的do_exit()函数和sys_waitpid()函数
+

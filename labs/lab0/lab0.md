@@ -1,12 +1,8 @@
 # lab 0 环境配置
 
-### 0 VMWare和Ubuntu20.04
+### 参考环境
 
-仅供参考。在实验开始前，假设  
-
-### 1 
-
-
+VMWare上使用Ubuntu，再在Ubuntu里开Bochs运行linux0.11
 
 ### Reference
 
@@ -58,9 +54,6 @@ sudo apt-get update
 #@ install typora
 sudo apt-get install typora
 
-#VS Code  https://code.visualstudio.com/docs/setup/linux
-sudo apt install ./<file>.deb
-
 # github_desktop_ubuntu https://gist.github.com/berkorbay/6feda478a00b0432d13f1fc0a50467f1
 sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.6.3-linux1/GitHubDesktop-linux-2.6.3-linux1.deb
 sudo apt-get install gdebi-core 
@@ -82,23 +75,6 @@ ls /usr/bin/g++*
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-3.4 100
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100
 sudo update-alternatives --config gcc
-
-#同步时间
-sudo apt-get install ntpdate
-sudo ntpdate cn.pool.ntp.org
-sudo hwclock --systohc
-
-#gcc编译*.c /usr/bin/ld: cannot find crt1.o: No such file or directory
-sudo apt-get install libc6-dev-mipsel-cross libc6-dev-mipsel-cross libc-dev-mipsel-cross
-export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/
-export LIBRARY_PATH=/usr/lib/i386-linux-gnu/
-sudo ln /lib/i386-linux-gnu/libgcc_s.so.1  /usr/lib/gcc/x86_64-linux-gnu/3.4.6/libgcc_s.so
-l /lib/x86_64-linux-gnu | grep libgcc
-l /lib/i386-linux-gnu | grep libgcc
-#@ https://stackoverflow.com/questions/6329887/compiling-problems-cannot-find-crt1-o
-#@ https://serverfault.com/questions/266138/cannot-find-lgcc-s-from-gcc-3-4-on-ubuntu-11-04
-#@ https://blog.csdn.net/qq_23827747/article/details/54710815
-#@ https://www.huaweicloud.com/articles/fe71979abe1909cd2fab54f6d4ae879f.html
 ```
 
 ### 配置
