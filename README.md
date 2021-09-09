@@ -45,3 +45,22 @@
 链接：https://pan.baidu.com/s/1_98NxYjNSv_kPxBEk6P6CQ 
 提取码：yyds 
 
+# Deploy
+
+```shell
+# 参考https://hoverwinter.gitbooks.io/hit-oslab-manual/content/environment.html https://github.com/Wangzhike/HIT-Linux-0.11/blob/master/0-prepEnv/%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83.md
+
+git clone https://github.com/systemX1/HIT-OSLAB
+# 解压
+# 安装gcc-3.4和必要依赖
+./gcc-3.4-ubuntu/inst.sh amd64
+sudo apt install build-essential bin86 manpages-dev libc6-dev-i386 ia32-libs ia32-libs-gtk libsm6:i386 libxpm4:i386 libx11-6:i386
+# 切换gcc版本
+ls /usr/bin/gcc*
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-3.4 100
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100
+sudo update-alternatives --config gcc
+# 编译linux0.11并运行bochs
+cd linux-0.11 & make -j 2 & ../run
+```
+
