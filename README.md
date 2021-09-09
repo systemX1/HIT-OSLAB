@@ -61,6 +61,6 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-3.4 100
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100
 sudo update-alternatives --config gcc
 # 编译linux0.11并运行bochs
-cd linux-0.11 & make -j 2 & ../run
+cd linux-0.11 && make -j 2 && ../run
 ```
 
